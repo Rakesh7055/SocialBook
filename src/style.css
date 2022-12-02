@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lobster&family=Merriweather+Sans:wght@800&family=Pacifico&family=Poppins:wght@300;400;600&family=Roboto:wght@300;400&family=Trispace&family=Ubuntu:wght@500&display=swap');
+
+
+*{
+    margin: 0;
+    padding: 0;
+    outline: none;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}
+
+:root{
+    --color-white:hsl(252, 30%, 100%);
+    --color-light:hsl(252, 30%, 95%);
+    --color-gray:hsl(252, 15%, 65%);
+    --color-primary:hsl(252, 75%, 60%);
+    --color-secondary:hsl(252, 100%, 90%);
+    --color-success:hsl(120, 95%, 65%);
+    --color-danger:hsl(0, 92%, 54%);
+    --color-dark:hsl(252, 30%, 17%);
+    --color-black:hsl(252, 30%, 10%);
+
+    --search-padding: 0.6rem 1rem;
+    --border-radius: 2rem;
+
+    --sticky-top-left: 5.4rem;
+    --sticky-top-right: -18rem;
+
+
+}
+
+body{
+    font-family: 'Poppins', sans-serif;
+    color: var(--color-dark);
+    background: var(--color-black);
+    overflow-x: hidden;
+}
+
+/* ============GENERAL STYLE=========== */
+
+.container{
+    width: 90%;
+    margin: 0 auto;
+}
+
+.asd{
+    display: grid;
+    grid-template-columns: 25vw auto ;
+    width: 80%;
+    margin: 5rem auto 0 auto;
+    gap: 1rem;
+    
+}
+
+.profile-photo{
+    width: 2.7rem;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    overflow: hidden ;
+}
+
+img{
+    display: block;
+    width: 100%;
+}
+
+.btn{
+    display: inline-block;
+    padding: 0.6rem 2rem ;
+    border-radius: var(--border-radius);
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 300ms ease;
+    font-size: 0.9rem;
+}
+
+.btn:hover{
+    opacity: 0.8rem;
+}
+
+.btn-primary{
+    background: var(--color-primary);
+    color: white;
+}
+
+.text-bold{
+    font-weight: 500;
+}
+
+.text-muted{
+    color: var(--color-gray);
+}
+
+input{
+    background: transparent;
+    border: none;
+}
+
+
+
+
+
+
+
+
+

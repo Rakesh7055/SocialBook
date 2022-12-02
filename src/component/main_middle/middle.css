@@ -1,0 +1,173 @@
+.container__middle{
+    width: 55.2rem;
+    
+
+}
+
+.middle {
+    display: flex;
+    justify-content: space-between;
+    height: 12rem;
+    gap: 0.5rem;
+    margin-top: 5rem;
+}
+
+.middle .stories {
+    display: flex;
+    flex-direction: column;
+    padding: 0.6rem 1rem;
+    border-radius: 1rem;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    font-size: 0.75rem;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.middle .stories::before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 5rem;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.75));
+    position: absolute;
+    bottom: 0;
+}
+
+.middle .stories .name {
+    z-index: 2;
+}
+
+.middle .stories:nth-child(1) {
+    background: url('../../assets/photo\ \(2\).jpg') no-repeat center center/cover;
+}
+
+.middle .stories:nth-child(2) {
+    background: url('../../assets/photo\ \(3\).jpg') no-repeat center center/cover;
+}
+
+.middle .stories:nth-child(3) {
+    background: url('../../assets/photo\ \(4\).jpg') no-repeat center center/cover;
+}
+
+.middle .stories:nth-child(4) {
+    background: url('../../assets/photo\ \(5\).jpg') no-repeat center center/cover;
+}
+
+.middle .stories:nth-child(5) {
+    background: url('../../assets/photo\ \(6\).jpg') no-repeat center center/cover;
+}
+
+.middle .stories:nth-child(6) {
+    background: url('../../assets/photo\ \(7\).jpg') no-repeat center center/cover;
+}
+
+.middle .stories:nth-child(7) {
+    background: url('../../assets/photo\ \(8\).jpg') no-repeat center center/cover;
+}
+
+.middle .stories:nth-child(8) {
+    background: url('../../assets/photo\ \(2\).jpg') no-repeat center center/cover;
+}
+
+
+.middle .stories .profile-photo {
+    width: 2rem;
+    height: 2rem;
+    align-items: flex-start;
+    border: 3px solid var(--color-primary);
+}
+
+.create-post {
+    background: var(--color-white);
+    border-radius: var(--border-radius);
+    padding: var(--search-padding);
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+    margin-top: 1rem;
+}
+
+.create-post input[type="text"] {
+    justify-content: start;
+    width: 100%;
+    padding-left: 1rem;
+    background: transparent;
+    color: var(--color-dark);
+    margin-right: 1rem;
+
+}
+
+.posts{
+    margin: 1rem 0;
+    font-size: 0.85rem;
+    line-height: 1.2rem;
+    
+}
+
+.feed{
+    background-color: var(--color-white);
+    border-radius: 1rem;
+    margin-bottom: 1rem;
+}
+
+
+.head{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.posts .feed{
+    padding: 1.5rem;
+}
+
+.user{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.post{
+    margin: 0.5rem 0;
+}
+
+.post img{
+    border-radius: 1rem;
+    overflow: hidden;
+}
+
+.action-button{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0.5rem;
+    font-size: 1.5rem;
+
+}
+
+.action i{
+    padding: 0 0.3rem;   
+}
+
+.liked-by{
+    display: flex;
+    margin-left: 0.5rem;
+    align-items: center;
+}
+
+.liked-by img{
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 1rem;
+    border: 2px solid var(--color-white);
+    margin-left: -0.7rem;
+    display: block;
+}
+
+.liked-by p{
+    margin-left: 0.3rem;
+}

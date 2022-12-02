@@ -1,0 +1,45 @@
+
+.container__right{
+    margin-top: 5rem;
+}
+
+.right{
+    background: var(--color-white);
+    padding: 1rem;
+    height: max-content;
+    bottom: 0;
+    border-radius: 1rem;
+}
+
+
+
+.friend-request{
+    margin-top: 1rem;
+}
+
+.friend-request h4{
+    color: var(--color-gray);
+    margin: 1rem 0;
+}
+
+.request{
+    background: var(--color-white);
+    border-radius: 1rem;
+    padding: 1rem;
+    margin-bottom: 0.7rem;
+}
+
+.info{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.request .action{
+    display: flex;
+    gap: 1rem;
+}
+
+
+

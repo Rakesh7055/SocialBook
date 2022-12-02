@@ -1,0 +1,148 @@
+.background{
+    position: fixed;
+    top: -40vmin;
+    left: -50vmin;
+    width: 100vmin;
+    height: 100vmin;
+    border-radius: 47% 53% 61% 39%/ 45% 51% 49% 55%;
+    /* background: #65c8ff ; */
+    animation: colors 10s ease-in-out infinite;
+}
+
+@keyframes colors{
+    0%{
+        background-color: #65c8ff;
+    }
+    25%{
+        background-color: #47f0a9;
+    }
+    50%{
+        background-color: #acfd50;
+    }
+    75%{
+        background-color: #fdaf48;
+    }
+    100%{
+        background-color: #a642f8;
+    }
+}
+
+.background::after{
+    content: "";
+    position: inherit;
+    bottom: -50vmin;
+    right: -50vmin;
+    width: inherit;  
+    height: inherit;
+    border-radius: inherit;
+    /* background-color: #143d81; */
+    animation: colors 10s ease-in-out infinite;
+}
+.containers{
+    display: flex;
+    justify-content: center;
+    margin-top: 9rem;
+}
+
+.loginpage{
+    overflow: hidden;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border: 1px solid black;
+    border-radius: 25px;
+    width: 20rem;
+    height: 28rem;
+    background-color: white;
+
+}
+
+.loginpage::before{
+    content: "";
+    position: absolute;
+    top: -898px;
+    left: 50%; 
+    translate: -50% 0;
+    height: 1000px;
+    width: 1000px;
+    border-radius: 50%;
+    /* background-color: #4a8df8;  */
+    animation: colors 10s ease-in-out infinite;
+}
+
+.loginpage h3{
+    margin-top: 1rem;
+    font-size: 2.5rem;
+    font-weight: 600;
+}
+
+
+.loginpage img{
+    width: 21%;
+    z-index: 3;
+    border-radius: 50%;
+    margin-top: 1rem;
+}
+
+.loginpage form{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    position: absolute;
+    top: 10rem;
+}
+
+.loginpage label{
+    position: relative;
+    top: 28px;
+    right: 6.7rem;
+    color: black;
+}
+
+.loginpage input{
+    border: none;
+    background-color: rgb(253, 250, 250);
+    border-radius: 6px;
+    width: 15rem;
+    height: 2rem;
+    padding-left: 1.6rem;
+    box-shadow: inset 8px 8px 8px 8px #cbcED1, inset -8px -8px 8px #FFF;
+
+
+}
+
+.loginpage input::placeholder{
+    color: rgb(104, 104, 104);
+    font-weight:600;
+}
+
+.suggetion{
+    transform: translateX(105px) translateY(-5px);
+    color: rgb(34, 245, 34);
+    margin-top: -20px;
+}
+
+.btn1{
+    width: 15rem;
+    height: 2rem;
+    border-radius: 6px;
+    background-color: rgb(59, 134, 246);
+    border: 1px solid black;
+    margin-top: 1.2rem;
+    font-size: larger;
+    font-weight: 500;
+    cursor: pointer;
+    animation: colors 10s ease-in-out infinite;
+
+}
+
+footer{
+    margin-top: 2rem;
+    font-weight: 500;
+    font-size: medium;
+    color: rgb(87, 85, 85);
+    position: relative;
+    margin-top: 12rem;
+}
+

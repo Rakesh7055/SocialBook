@@ -1,0 +1,43 @@
+
+.container_main{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 10rem;
+}
+
+h1{
+    color: white;
+}
+
+
+.slect{
+    display: flex;
+    align-items: center;
+    background-color: rgb(251, 252, 253);
+    border-radius: 2rem;
+    width: 15rem;
+    height: 2.5rem;
+    margin-top: 10px;
+    
+}
+
+.slect input{
+    margin: 0 0 0 20px;
+    color: black;
+}
+
+.slect h3{
+    margin-left: 15px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: rgb(8, 8, 8);
+}
+
+.btn2{
+    margin-top: 5rem;
+    width: 15rem;
+    background-color: rgb(59, 77, 237);
+    color: white;
+}
