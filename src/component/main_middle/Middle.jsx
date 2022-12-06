@@ -12,27 +12,12 @@ import { AiOutlineHeart } from "react-icons/ai";
 import { FaRegCommentDots } from "react-icons/fa";
 import { AiOutlineShareAlt } from "react-icons/ai";
 import { FiBookmark } from "react-icons/fi";
-import { post } from "../../Cost";
 import { useSelector, useDispatch } from "react-redux";
-import { addPost } from "../../action";
+import { addPost } from "../../reducer/Post";
 
 const Middle = () => {
-  const myPost = useSelector((state) => state.posts.posts);
+  const myPost = useSelector((state) => state?.posts?.posts);
   const dispatch = useDispatch();
-  // const data = {
-  //   user: "Subham",
-  //   profile_img: Profile,
-  //   user_info: "India, 1 MIN AGO",
-  //   post: Profile3,
-  //   liked_img_1: Profile1,
-  //   liked_img_2: Profile2,
-  //   liked_img_3: Profile4,
-  //   liked_info: "Liked by Ankit and 30 other",
-  //   caption: "Life is all about a race.",
-  //   has_tag: "#lifestyle",
-  //   comment: "view all 2 comments",
-  // };
-  // dispatch(addPost(data));
   const newPost = (event) => {
     event.preventDefault();
     const data = {
@@ -119,7 +104,7 @@ const Middle = () => {
 
       {/* =======FEEEDS======== */}
       <div className="posts">
-        {myPost.map(
+        {myPost?.map(
           ({
             id,
             profile_img,

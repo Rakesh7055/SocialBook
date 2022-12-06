@@ -1,8 +1,10 @@
 import { combineReducers } from "@reduxjs/toolkit";
-import posts from "./addPost";
+import { newPosts } from "./Post";
+import { countryDetail } from "./country";
 
 const rootReducer = combineReducers({
-  posts: posts,
+  posts: newPosts,
+  countryData: countryDetail,
 });
 
 export default rootReducer;

@@ -55,6 +55,7 @@
     background-color: rgb(59, 62, 241);
     border-radius: 7px 7px 1px 7px;
     width: 20rem;
+    padding: 10px;
 }
 
 .sendMessage{

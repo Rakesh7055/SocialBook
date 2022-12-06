@@ -4,15 +4,15 @@ import frontimg from "../../assets/frontpage.png";
 import { HiOutlineUserCircle } from "react-icons/hi";
 import { FaCheckCircle } from "react-icons/fa";
 import { CiLock } from "react-icons/ci";
-import { NavLink, useNavigate } from "react-router-dom";
-import i18next from 'i18next';
+import { NavLink, useNavigate, useNavigation } from "react-router-dom";
+import i18next from "i18next";
 import { useTranslation } from "react-i18next";
-
+import { auth } from "../../firebase";
 
 const Loginpage = () => {
-
   const { t } = useTranslation();
 
+  const nevigation = useNavigation();
   const [state, setState] = useState({
     user: "",
     pass: "",
@@ -47,46 +47,52 @@ const Loginpage = () => {
     }
     return "";
   }
-
+  function handleError(key, value) {
+    let error = "";
+    if (key === "user") {
+      error = emialValidationError(value);
+    } else if (key === "pass") {
+      error = passwordValidationError(value);
+    }
+    return error;
+  }
   function inputHandler(event) {
     const name = event.target.name;
     const value = event.target.value;
     if (name === "email") {
       setState({
         ...state,
-        user: value,
-        userErr: emialValidationError(value),
+        [name]: value,
+        [name + "_error"]: handleError(name, value),
       });
-    } else if (name === "password") {
-      setState({
-        ...state,
-        pass: value,
-        passErr: passwordValidationError(value),
-      });
-    } else {
-      setState((state) => ({ ...state, [name]: value }));
     }
   }
-
-  function emailPass(e) {
+  async function emailPass(e) {
     e.preventDefault();
     let entry = { user: state, pass: state };
     setState({ ...state, allEntry: entry });
+    // try {
+    //   const result = await auth.signInWithEmailAndPassword(
+    //     state.email,
+    //     state.password
+    //   );
+    //   alert(result.user.email);
+    //   nevigation("/");
+    // } catch (err) {
+    //   alert("error message");
+    // }
   }
 
   const navigate = useNavigate();
 
   const loginHandler = () => {
-    if (state.userErr && state.passErr || state.pass && state.user) {
+    if ((state.userErr && state.passErr) || (state.pass && state.user)) {
       navigate("/dashboard");
       console.log(true);
     } else {
       console.log(false);
     }
   };
-
-  
-  
 
   return (
     <>
@@ -127,7 +133,9 @@ const Loginpage = () => {
           </form>
           <footer>
             New user, SignUp{" "}
-            <NavLink to="signUp">{({ isActive }) => <div>Signup</div>}</NavLink>
+            <NavLink to={"/SignUp"}>
+              {({ isActive }) => <div>Signup</div>}
+            </NavLink>
           </footer>
         </div>
       </div>

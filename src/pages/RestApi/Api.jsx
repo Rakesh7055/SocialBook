@@ -1,44 +1,41 @@
 import React, { useEffect, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import "./api.css";
+import { fatchCountryApi, earchCountry } from "../../reducer/country";
 
 const Api = () => {
-  const [state, setState] = useState([]);
+  const [countryName, setCountryName] = useState("");
 
-  const fetchApi = () => {
-    fetch(`https://restcountries.com/v3.1/all`)
-      .then((res) => res.json())
-      .then((result) => {
-        setState(result);
-      })
-      .catch((error) => console.log(error));
-  };
+  const countryApi = useSelector((state) => {
+    return state?.countryData?.countryData;
+  });
+  console.log({ countryApi });
+
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    fetchApi();
+    dispatch(fatchCountryApi());
   }, []);
 
-  const searchHandler = async (e) => {
-    let countryName = e.target.value;
-    console.log(countryName, "/////");
-    try {
-      let result = await fetch(
-        `https://restcountries.com/v3.1/name/${countryName}`
-      );
-      result = await result.json();
-      if (result && Array.isArray(result)) {
-        setState(result);
-      }
-    } catch (err) {
-      console.log({ error: err });
-    }
+  function checkcountry(country) {
+    return country?.name?.common
+      ?.toLowerCase()
+      .includes(countryName.toLocaleLowerCase());
+  }
+  const countryData = countryApi?.filter(checkcountry);
+
+  const searchHandler = (e) => {
+    let value = e.target.value;
+    setCountryName(value);
   };
 
   return (
-    <>
+    <div>
       <h1>Country Name</h1>
       <input
         type="text"
         placeholder="country name.."
+        value={countryName}
         onChange={searchHandler}
       />
 
@@ -49,7 +46,8 @@ const Api = () => {
           <td>CAPITAL</td>
           <td>POPULATION</td>
         </tr>
-        {state.map((item) => (
+
+        {countryData?.map((item) => (
           <tr>
             <td>{item.name.common}</td>
             <td>
@@ -60,7 +58,7 @@ const Api = () => {
           </tr>
         ))}
       </table>
-    </>
+    </div>
   );
 };
 

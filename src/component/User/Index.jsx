@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-// import { useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import "./style.css";
 import Profile from "../../assets/photo (8).jpg";
 import { MdVideoCall } from "react-icons/md";
@@ -9,14 +9,17 @@ import { MdAddPhotoAlternate } from "react-icons/md";
 import { IoIosArrowDropupCircle } from "react-icons/io";
 
 const Index = () => {
-  // const { profile_img, user = "" } = useParams;
-  // console.log(user);
+  const { profile_img, user } = useParams();
+  console.log(user);
   const [msg, setMsg] = useState("");
-  const [state, setState] = useState(false);
 
+  let inboxMessage = "";
   const message = (e) => {
-    const dm = e.target.value;
-    setMsg(dm);
+    inboxMessage = e.target.value;
+  };
+
+  const send = (e) => {
+    setMsg(inboxMessage);
   };
 
   return (
@@ -24,11 +27,11 @@ const Index = () => {
       <div className="userContainer">
         <div className="messageHead">
           <div className="profile-photo">
-            <img src={Profile} />
+            <img src={profile_img} alt={Profile} />
             <div className="online"></div>
           </div>
           <div className="messege-body msg_persion">
-            <h3>Romi singh</h3>
+            <h3>{user}</h3>
             <h6>Online</h6>
           </div>
           <div className="icons">
@@ -47,17 +50,17 @@ const Index = () => {
           </div>
         </div>
         <div className="messagebody">
-          <div className="inbox">
-            <p>{msg}</p>
-          </div>
+          <div className="inbox">{msg ? <p>{msg}</p> : null}</div>
+
           <div className="sendMessage">
             <span className="more">+</span>
             <input
               type="text"
+              name="msg"
               className="search__bar input_bar"
               onChange={message}
             />
-            <button className="more bg">
+            <button className="more bg" onClick={send}>
               <IoIosArrowDropupCircle className="ioio" />
             </button>
           </div>
