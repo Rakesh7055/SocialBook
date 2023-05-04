@@ -1,101 +1,125 @@
-.userContainer{
-    background-color: #323c51;
-    width: 40rem;
-    border-radius: 0 2rem 2rem 0;
-    margin: 5rem 0 0 2rem;
+.userContainer {
+  background-color: var(--color-white);
+  margin: 5rem 0;
+  border-radius: 1rem;
+  width: 27rem;
 }
 
-.messageHead{
-    display: flex;
-    align-items: center;
-    padding: 1rem;
-    margin-top: 1rem;
-    border-radius: 2rem;
+.messageHead {
+  display: flex;
+  align-items: center;
+  border-radius: 1rem;
+  padding: 1rem 1rem 0 1rem;
 }
 
-.msg_persion{
-    margin: 0 6px 0.6rem ;
-}
-.msg_persion h6{
-    color: rgb(100, 99, 99);
-    font-size: 12px;
-    font-weight: 600;
-    line-height: 6px;
-}
-.icons{
-    margin-left: 15rem;   
+.msg_persion {
+  margin-bottom: 0.6rem;
 }
 
-.icons i{
-    margin-left: 10px;
-    font-size: 2rem;
-    color: rgb(111, 110, 110);
+.msg_persion h6 {
+  color: rgb(100, 99, 99);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 6px;
 }
 
-.messagebody{
-    height: 30rem;
-    padding: 7px 10px;
-    margin: 5px auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-.inbox{
-    background-color: #39445b;
-    height: 25rem;
-    margin: 0 auto;
-    width: 37rem;
-    border-radius: 5px;
-    display: flex;
-    justify-content: end;
-    align-items: flex-end;
-    padding: 5px;
-}
-.inbox p{
-    background-color: rgb(59, 62, 241);
-    border-radius: 7px 7px 1px 7px;
-    width: 20rem;
-    padding: 10px;
+.icons {
+  margin-left: 14.5rem;
+  position: absolute;
 }
 
-.sendMessage{
-    height: 3rem;
-    align-items: center;
-    display: flex;
-    margin: 0 auto;
+.icons i {
+  margin-left: 10px;
+  font-size: 2rem;
+  color: rgb(111, 110, 110);
 }
 
-.more{
-    background-color: rgba(75, 75, 75, 0.9);
-    border-radius: 12px;
-    text-align: center;
-    padding: 7.5px;
-    width: 2.7rem;
-    color: white;
-
+.messagebody {
+  height: 30rem;
+  padding: 7px 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
-.input_bar{
-    border: 2px solid blue;
-    margin: 0 1rem;
-    width: 30rem;
-    border-radius: .8rem;
-    background-color: transparent;
+.user_img {
+  margin: 0rem 0.5rem;
 }
 
-.bg{
-    background-color: rgb(53, 82, 247);
-    width: 2.5rem;
-    height: 2.5rem;
-    border: none;
+.inbox {
+  background-color: var(--color-gray);
+  height: 31rem;
+  /* margin: 0 auto; */
+  width: auto;
+  border-radius: 5px;
+  display: flex;
+  justify-content: end;
+  align-items: flex-end;
+  padding: 8px;
+}
+.inbox p {
+  background-color: rgb(59, 62, 241);
+  border-radius: 7px 7px 1px 7px;
+  width: max-content;
+  padding: 10px;
+  width: 16rem;
 }
 
-.ioio{
-   font-size: 1.3rem;
-   padding-top: 4px;
+.sendMessage {
+  height: 4rem;
+  align-items: center;
+  display: flex;
+  margin-top: 1rem;
 }
 
+.input_bar {
+  border: 2px solid blue;
+  margin: 0 0.1rem;
+  width: 35.4rem;
+  height: 3.3rem;
+  border-radius: 0.8rem;
+  background-color: transparent;
+}
 
+.more {
+  font-size: 35.5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
+.bg {
+  background-color: rgb(53, 82, 247);
+  width: 3.3rem;
+  height: 3.3rem;
+  border: none;
+  border-radius: 50%;
+  text-align: center;
+  padding: 15.5px;
+}
 
+.ioio {
+  font-size: 1.3rem;
+  padding-top: 4px;
+}
 
+.show_online {
+  transform: translate(-23rem, -34.8rem);
+}
+
+/* =================  MEDIA QUERIES (SMALL DEVICES)  ================== */
+
+@media screen and (max-width: 600px) {
+  .userContainer {
+    width: 23.8rem;
+    margin: 1rem auto;
+  }
+
+  .icons {
+    margin-left: 11.5rem;
+  }
+
+  .show_online {
+    transform: translate(-19.5rem, -30.9rem);
+  }
+}

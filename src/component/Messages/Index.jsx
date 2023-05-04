@@ -8,7 +8,7 @@ import { messege } from "../../Cost";
 const Index = () => {
   return (
     <>
-      <div className="container__right main">
+      <div className="container__right">
         <div className="right">
           <div className="message_head">
             <h4>Messeages</h4>
@@ -35,23 +35,22 @@ const Index = () => {
             {messege.map(({ id, profile_img, user, sms }) => {
               return (
                 <>
-                  <div key={id} className="messages">
+                  <NavLink
+                    key={id}
+                    to={`${user}`}
+                    className={({ isActive }) => {
+                      return `messages ${isActive ? "active" : ""}`;
+                    }}
+                  >
                     <div className="profile-photo">
                       <img src={profile_img} />
                       <div className="online"></div>
                     </div>
                     <div className="messege-body">
-                      <NavLink
-                        to={`${user}`}
-                        className={({ isActive }) => {
-                          return `${isActive ? "active" : "inactive"}`;
-                        }}
-                      >
-                        <h5>{user}</h5>
-                      </NavLink>
+                      <h5>{user}</h5>
                       <p className="text-muted">{sms}</p>
                     </div>
-                  </div>
+                  </NavLink>
                 </>
               );
             })}

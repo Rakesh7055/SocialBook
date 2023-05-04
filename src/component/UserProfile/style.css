@@ -1,0 +1,136 @@
+.profile_detail {
+  margin-top: 5rem;
+  font-size: 2rem;
+  color: var(--color-gray);
+}
+
+.profile_container {
+  background-color: var(--color-white);
+  height: max-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  border-radius: 1rem;
+  color: white;
+}
+.profile_container::before {
+  content: "";
+  height: 151px;
+  width: 24rem;
+  background-color: var(--color-primary);
+  border-radius: 1rem 1rem 0 0;
+  overflow: hidden;
+}
+
+/*
+.user-photo {
+  margin-top: 200px;
+  width: 3.4rem;
+  border: 2px solid rgb(62, 62, 230);
+}
+
+.edit {
+  display: flex;
+  flex-direction: column;
+}
+.editProfile {
+  width: 5rem;
+  height: 2rem;
+}
+.editInput {
+  border: 2px solid blue;
+  width: 7rem;
+  height: 2rem;
+  margin-top: 2px;
+}
+
+.user_card {
+  margin-top: 1rem;
+  line-height: 1.5rem;
+}
+.user_card h6 {
+  color: #595b5f;
+}
+
+.user_card p {
+  width: 15rem;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 20px;
+}
+
+.info {
+  column-gap: 3rem;
+  margin-top: 0.5rem;
+}
+
+hr {
+  width: 18rem;
+  margin-top: 1rem;
+  background-color: rgb(29, 26, 45);
+} */
+
+.user-profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: -42px;
+}
+
+.user-profile h2 {
+  color: var(--color-black);
+  margin-top: 10px;
+}
+
+.user-profile h5 {
+  color: var(--color-gray);
+  margin-bottom: 7px;
+}
+
+.profile-image {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid rgb(3, 247, 12);
+}
+
+.caption {
+  color: var(--color-dark);
+  padding: 0 1.5rem;
+}
+
+.button-group {
+  display: flex;
+  justify-content: center;
+  margin: 1rem 0;
+  gap: 10px;
+}
+
+.profileBtn {
+  display: flex;
+  flex-direction: column;
+  color: black;
+  font-size: 10px;
+}
+
+.userbtn {
+  width: 64px;
+  height: 64px;
+  background-color: #fdfdfd;
+  color: #060505;
+  border-radius: 50%;
+  margin-bottom: 5px;
+  font-size: 20px;
+}
+
+/* =================  MEDIA QUERIES (SMALL DEVICES)  ================== */
+
+@media screen and (max-width: 600px) {
+  .profile_detail {
+    width: 23.8rem;
+    margin: 0 auto;
+  }
+}

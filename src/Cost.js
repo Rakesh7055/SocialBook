@@ -82,8 +82,8 @@ export const messege = [
   {
     id: 3,
     profile_img: Profile,
-    user: "Sweta",
-    sms: "I love you",
+    user: "Romi Singh",
+    sms: "good morning",
   },
   {
     id: 4,

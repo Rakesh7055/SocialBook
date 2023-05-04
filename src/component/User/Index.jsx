@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { useParams } from "react-router-dom";
 import "./style.css";
 import Profile from "../../assets/photo (8).jpg";
@@ -11,7 +11,8 @@ import { IoIosArrowDropupCircle } from "react-icons/io";
 const Index = () => {
   const { profile_img, user } = useParams();
   console.log(user);
-  const [msg, setMsg] = useState("");
+  const [msg, setMsg] = useState();
+  const ref = useRef(null);
 
   let inboxMessage = "";
   const message = (e) => {
@@ -20,15 +21,16 @@ const Index = () => {
 
   const send = (e) => {
     setMsg(inboxMessage);
+    ref.current.value = "";
   };
 
   return (
     <>
       <div className="userContainer">
         <div className="messageHead">
-          <div className="profile-photo">
-            <img src={profile_img} alt={Profile} />
-            <div className="online"></div>
+          <div className="profile-photo user_img">
+            <img src={Profile} alt={Profile} />
+            <div className="online show_online"></div>
           </div>
           <div className="messege-body msg_persion">
             <h3>{user}</h3>
@@ -53,14 +55,15 @@ const Index = () => {
           <div className="inbox">{msg ? <p>{msg}</p> : null}</div>
 
           <div className="sendMessage">
-            <span className="more">+</span>
+            <button className="more bg">+</button>
             <input
+              ref={ref}
               type="text"
               name="msg"
               className="search__bar input_bar"
               onChange={message}
             />
-            <button className="more bg" onClick={send}>
+            <button className="bg" onClick={send}>
               <IoIosArrowDropupCircle className="ioio" />
             </button>
           </div>

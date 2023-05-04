@@ -8,11 +8,11 @@ import { NavLink, useNavigate, useNavigation } from "react-router-dom";
 import i18next from "i18next";
 import { useTranslation } from "react-i18next";
 import { auth } from "../../firebase";
+import { signInWithEmailAndPassword } from "firebase/auth";
 
 const Loginpage = () => {
   const { t } = useTranslation();
 
-  const nevigation = useNavigation();
   const [state, setState] = useState({
     user: "",
     pass: "",
@@ -20,6 +20,7 @@ const Loginpage = () => {
     userErr: "",
     passErr: "",
   });
+  const [submitButtonDisabled, setSubmitButtonDisabled] = useState(false);
 
   function emialValidationError(email) {
     const regex =
@@ -67,32 +68,24 @@ const Loginpage = () => {
       });
     }
   }
-  async function emailPass(e) {
+  async function handleSubmission(e) {
     e.preventDefault();
-    let entry = { user: state, pass: state };
-    setState({ ...state, allEntry: entry });
-    // try {
-    //   const result = await auth.signInWithEmailAndPassword(
-    //     state.email,
-    //     state.password
-    //   );
-    //   alert(result.user.email);
-    //   nevigation("/");
-    // } catch (err) {
-    //   alert("error message");
-    // }
+    navigate("/");
+    setSubmitButtonDisabled(true);
+    signInWithEmailAndPassword(auth, state.email, state.password)
+      .then((res) => {
+        const user = res.user;
+
+        setSubmitButtonDisabled(false);
+        // ...
+      })
+      .catch((error) => {
+        setSubmitButtonDisabled(false);
+        alert(error.message);
+      });
   }
 
   const navigate = useNavigate();
-
-  const loginHandler = () => {
-    if ((state.userErr && state.passErr) || (state.pass && state.user)) {
-      navigate("/dashboard");
-      console.log(true);
-    } else {
-      console.log(false);
-    }
-  };
 
   return (
     <>
@@ -101,7 +94,7 @@ const Loginpage = () => {
         <div className="loginpage">
           <img className="img1" src={frontimg} alt="" />
           <h3>{i18next.t("login")}</h3>
-          <form action="#" onSubmit={emailPass}>
+          <form action="#">
             <label>
               <HiOutlineUserCircle />
             </label>
@@ -110,6 +103,7 @@ const Loginpage = () => {
               type="text"
               placeholder="Email"
               onChange={inputHandler}
+              required
             />
             {state.userErr && (
               <span className="suggetion">
@@ -125,9 +119,14 @@ const Loginpage = () => {
               type="password"
               placeholder="password"
               onChange={inputHandler}
+              required
             />
             {state.passErr ? state.passErr : null}
-            <button className="btn1" onClick={loginHandler}>
+            <button
+              className="btn1"
+              disabled={submitButtonDisabled}
+              onClick={handleSubmission}
+            >
               login
             </button>
           </form>

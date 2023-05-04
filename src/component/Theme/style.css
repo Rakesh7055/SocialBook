@@ -1,0 +1,100 @@
+.theme {
+  margin-top: 5rem;
+  background-color: var(--color-white);
+  text-align: center;
+  border-radius: 1rem;
+}
+
+.theme h1 {
+  color: var(--color-dark);
+}
+
+.theme_section {
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.theme_section p {
+  color: var(--color-gray);
+}
+
+.font_section {
+  background-color: var(--color-gray);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1rem;
+  padding: 0 0.3rem;
+}
+
+.fontSize {
+  margin: 0 0.4rem;
+}
+
+.font_section circle {
+  cursor: pointer;
+}
+
+.background_section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.2rem 0;
+}
+
+.color_theme {
+  border: 1px solid var(--color-black);
+  width: 6rem;
+  height: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0 0.9rem;
+  -webkit-text-stroke: white;
+  color: black;
+  text-shadow: 2px 2px 0 var black, -1px -1px 0 black, 1px -1px 0 black,
+    -1px 1px 0 black, 1px 1px 0 black;
+  cursor: pointer;
+}
+
+.color_theme:nth-child(1) {
+  background-color: white;
+}
+
+.color_theme:nth-child(2) {
+  background-color: hsl(252, 30%, 17%);
+  color: white;
+}
+
+.color_theme:nth-child(3) {
+  background-color: gray;
+}
+
+/* =================  MEDIA QUERIES (SMALL DEVICES)  ================== */
+
+@media screen and (max-width: 600px) {
+  .theme {
+    margin: 0 auto;
+  }
+  .font_section {
+    width: 22rem;
+  }
+
+  .font_section svg circle {
+    transform: scaleX(0.86);
+  }
+
+  .color_section svg circle {
+    transform: scaleX(0.86);
+  }
+
+  .color_theme {
+    margin: 0 0.6rem;
+  }
+}

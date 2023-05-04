@@ -1,7 +1,19 @@
-.signup{
-    margin-top: 5px;
+.signup {
+  margin-top: 5px;
 }
 
-.footer{
-    margin-top: 221px;
+.footer {
+  margin-top: 320px;
+}
+
+/* =================  MEDIA QUERIES (SMALL DEVICES)  ================== */
+
+@media screen and (max-width: 600px) {
+  .signup {
+    margin-top: 5px;
+  }
+
+  .footer {
+    margin-top: 290px;
+  }
 }
