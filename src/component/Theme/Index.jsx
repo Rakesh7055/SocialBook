@@ -15,7 +15,7 @@ const Index = () => {
       );
       document.documentElement.style.setProperty("--color-black", "white");
       document.documentElement.style.setProperty("--color-dark", colors);
-    } else if (colors === "hsl(252, 30%, 17%)") {
+    } else if (colors == "hsl(252, 30%, 17%)") {
       document.documentElement.style.setProperty("--color-white", "white");
       document.documentElement.style.setProperty("--color-dark", colors);
       document.documentElement.style.setProperty("--color-black", "black");
@@ -109,12 +109,12 @@ const Index = () => {
           </button>
           <button
             className="color_theme"
-            value="hsl(252, 30%, 17%"
-            onChange={setBackground}
+            value="hsl(252, 30%, 17%)"
+            onClick={setBackground}
           >
             Dark
           </button>
-          <button className="color_theme" onClick={setBackground}>
+          <button className="color_theme" value="black" onClick={setBackground}>
             Gray
           </button>
         </div>
