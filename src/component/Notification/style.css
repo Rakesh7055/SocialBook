@@ -1,16 +1,26 @@
-.notification_container{
-    margin-right: 7.5rem;
+.notification_container {
+  position: sticky;
+  top: 0;
+  align-self: self-start;
 }
 
-.notification_popup{
-    margin-top: 5rem;
-    background: var(--color-dark);
-    left: 110%;
-    width: 49rem;
-    max-height: max-content ;
-    padding: 1rem 0.8rem;
-    border-radius: 1rem;
-    font-size: larger;
+.notification_popup {
+  margin-top: 5rem;
+  background: var(--color-white);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 1rem;
+  font-size: larger;
+  width: auto;
+  padding: 1rem;
+  gap: 1rem;
+}
+
+.notification_popup h2 {
+  color: var(--color-black);
+  text-align: center;
 }
 
 /* .notification_popup::before{
@@ -26,20 +36,32 @@
     z-index: -10;
 } */
 
-.notification_popup > div{
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    gap: 1rem;
-    margin: 1rem 0 1rem 1rem;
-    width: 46rem;
-    height: max-content;
-    background-color: rgb(61, 62, 75);
-    border-radius: 1rem;
-    padding: 8px 5px;
-    color: rgb(154, 151, 151);
+.notification_popup > div {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 1rem;
+  width: auto;
+  height: max-content;
+  border-radius: 1rem;
+  padding: 8px 5px;
+  color: var(--color-dark);
 }
 
-.notification_body b{
-    color: white;
+.notification_body b {
+  color: var(--color-black);
+}
+
+.userNotification_img {
+  margin-top: 9px;
+}
+
+/* =================  MEDIA QUERIES (SMALL DEVICES)  ================== */
+
+@media screen and (max-width: 600px) {
+  .notification_popup {
+    width: 23.88rem;
+    margin: 0 auto;
+    padding-top: 0;
+  }
 }

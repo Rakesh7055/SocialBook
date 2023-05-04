@@ -13,36 +13,37 @@ import Setting from "./component/Setting/Index";
 import Analytics from "./component/Analytics/Index";
 import Messages from "./component/Messages/Index";
 import User from "./component/User/Index";
-import Home from "./component/Home/Index";
-import UserProfile from "./component/userProfile/Index";
+import UserProfile from "./component/UserProfile/Index";
 import Api from "./pages/RestApi/Api";
 import SignUp from "./pages/SignUp";
+import Auth from "./component/Auth";
+import { UserContextProvider } from "./context/userContext";
 
 const App = () => {
   return (
-    <BrowserRouter>
-      {/* <Routes>
-        <Route path="/" element={<Api />} />
-        <Route path="/" element={<Language />} />
-        <Route path="/" element={<SignUp />} />
-        <Route path="/loginpage" element={<Loginpage />} />
-      </Routes> */}
-      <Routes>
-        <Route path="/" element={<Dashboard />}>
-          <Route index element={<Middle />} />
-          <Route path="/Home" element={<Home />} />
-          <Route index element={<UserProfile />} />
-          <Route path="/Explore" element={<Explore />} />
-          <Route path="/Notification" element={<Notification />} />
-          <Route path="/Messages/*" element={<Messages />}>
-            <Route path=":user" element={<User />} />
+    <UserContextProvider>
+      <BrowserRouter>
+        <Routes>
+          {/* <Route path="/" element={<Language />} /> */}
+          <Route path="loginpage" element={<Loginpage />} />
+          <Route path="signUp" element={<SignUp />} />
+          <Route path="dashboard" element={<Dashboard />} />
+        </Routes>
+        <Routes>
+          <Route path="/" element={<Dashboard />}>
+            <Route index element={<Right />} />
+            <Route path="/Explore" element={<Explore />} />
+            <Route path="/Notification" element={<Notification />} />
+            <Route path="/Messages/*" element={<Messages />}>
+              <Route path=":user" element={<User />} />
+            </Route>
+            <Route path="/Analytics" element={<Analytics />} />
+            <Route path="/Setting" element={<Setting />} />
+            <Route path="/Theme" element={<Theme />} />
           </Route>
-          <Route path="/Analytics" element={<Analytics />} />
-          <Route path="/Setting" element={<Setting />} />
-          <Route path="/Theme" element={<Theme />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
+        </Routes>
+      </BrowserRouter>
+    </UserContextProvider>
   );
 };
 

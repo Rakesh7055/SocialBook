@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./middle.css";
 import Profile from "../../assets/photo (8).jpg";
 import Profile1 from "../../assets/photo (1).jpg";
@@ -14,8 +14,11 @@ import { AiOutlineShareAlt } from "react-icons/ai";
 import { FiBookmark } from "react-icons/fi";
 import { useSelector, useDispatch } from "react-redux";
 import { addPost } from "../../reducer/Post";
+import Right from "../main_right/Right";
 
 const Middle = () => {
+  const [bgColor, setBgColor] = useState("--color-white");
+
   const myPost = useSelector((state) => state?.posts?.posts);
   const dispatch = useDispatch();
   const newPost = (event) => {
@@ -37,8 +40,12 @@ const Middle = () => {
     dispatch(addPost(data));
   };
 
+  const handleLike = () => {
+    setBgColor("red");
+  };
+
   return (
-    <div className="container__middle">
+    <div className="middle_container ">
       <div className="middle">
         <div className="stories">
           <div className="profile-photo">
@@ -147,7 +154,10 @@ const Middle = () => {
                 <div className="action-button">
                   <div className="action">
                     <i>
-                      <AiOutlineHeart />
+                      <AiOutlineHeart
+                        color={bgColor}
+                        onDoubleClick={handleLike}
+                      />
                     </i>
                     <i>
                       <FaRegCommentDots />

@@ -3,14 +3,19 @@ import "./style.css";
 import frontimg from "../../assets/frontpage.png";
 import { NavLink, useNavigate } from "react-router-dom";
 import { auth } from "../../firebase";
+import { useUserContext } from "../../context/userContext";
+import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 
 const SignUp = () => {
+  const { logIn } = useUserContext();
+
   const [userData, setUserData] = useState({
     email: "",
     password: "",
     user: "",
     userName: "",
   });
+  const [submitButtonDisabled, setSubmitButtonDisabled] = useState(false);
   const navigaton = useNavigate();
 
   let value, name;
@@ -20,54 +25,25 @@ const SignUp = () => {
     setUserData({ ...userData, [name]: value });
   };
 
-  //   const submitData = async (event) => {
-  //     event.preventDefault();
-  // const { email, password, user, userName } = userData;
-  // if (email && password && user && userName) {
-  //   const result = fetch(
-  //     "https://socialbook-3d6ed-default-rtdb.firebaseio.com/userDataRecords.json",
-  //     {
-  //       method: "POST",
-  //       Headers: {
-  //         "content-Type": "application/json",
-  //       },
-  //       body: JSON.stringify({
-  //         email,
-  //         password,
-  //         user,
-  //         userName,
-  //       }),
-  //     }
-  //   );
-  //   if (result) {
-  //     setUserData({
-  //       email: "",
-  //       password: "",
-  //       user: "",
-  //       userName: "",
-  //     });
-  //     alert("Data store");
-  //   } else {
-  //     alert("fill the data");
-  //   }
-  // } else {
-  //   alert("fill the data");
-  // }
-
   const handlerSubmit = async (e) => {
     e.preventDefault();
-    try {
-      const result = await auth.createUserWithEmailAndPassword(
-        userData.email,
-        userData.password,
-        userData.user,
-        userData.userName
-      );
-      alert(result.userUID.user);
-      navigaton("/");
-    } catch (err) {
-      alert("error message");
-    }
+    logIn(userData.user);
+    setSubmitButtonDisabled(true);
+
+    createUserWithEmailAndPassword(auth, userData.email, userData.password)
+      .then(async (res) => {
+        setSubmitButtonDisabled(false);
+        console.log(res);
+        const user = res.user;
+        await updateProfile(user, {
+          displayName: userData.user,
+        });
+        navigaton("/");
+      })
+      .catch((error) => {
+        setSubmitButtonDisabled(false);
+        console.log(error.message);
+      });
   };
 
   return (
@@ -85,6 +61,7 @@ const SignUp = () => {
               placeholder="Email"
               value={userData.email}
               onChange={poetUserData}
+              required
             />
             <input
               className="signup"
@@ -93,6 +70,7 @@ const SignUp = () => {
               value={userData.password}
               placeholder="password"
               onChange={poetUserData}
+              required
             />
             <input
               className="signup"
@@ -101,6 +79,7 @@ const SignUp = () => {
               value={userData.user}
               placeholder="user"
               onChange={poetUserData}
+              required
             />
             <input
               className="signup"
@@ -109,8 +88,11 @@ const SignUp = () => {
               value={userData.userName}
               placeholder="username"
               onChange={poetUserData}
+              required
             />
-            <button className="btn1">SignUp</button>
+            <button className="btn1" disabled={submitButtonDisabled}>
+              SignUp
+            </button>
           </form>
           <footer className="footer">
             Existing user, Login{" "}

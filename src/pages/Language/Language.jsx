@@ -22,8 +22,9 @@ const Language = () => {
   const navigate = useNavigate();
 
   const languageHandler = () => {
+
     i18next.changeLanguage(lan);
-    navigate("/loginpage");
+    navigate("/signUp");
   };
 
   const slectLanguage = (e) => {
