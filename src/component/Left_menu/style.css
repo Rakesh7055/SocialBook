@@ -119,7 +119,7 @@
 
   .sidebar .menu_item i {
     margin-left: 0.5rem;
-    padding-right: 0.7rem;
+    padding-right: 0.8rem;
   }
   .sidebar h3 {
     display: none;
@@ -141,5 +141,12 @@
     width: 100%;
     height: 0.2rem;
     margin-top: 3rem;
+  }
+
+  .sidebar .menu_item:first-child.active {
+    border-top-left-radius: 0rem;
+  }
+  .sidebar .menu_item:last-child.active {
+    border-bottom-left-radius: 0rem;
   }
 }

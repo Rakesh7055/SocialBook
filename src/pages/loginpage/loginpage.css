@@ -93,21 +93,20 @@
   gap: 5px;
 }
 
-.loginpage label {
+/* .loginpage label {
   position: relative;
   top: 43px;
   right: 8.2rem;
   color: black;
-}
+} */
 
 .loginpage input {
-  border: none;
+  border: 1px solid black;
   background-color: rgb(253, 250, 250);
   border-radius: 6px;
   width: 19rem;
   height: 3rem;
-  padding-left: 2.5rem;
-  box-shadow: inset 8px 8px 8px 8px #cbced1, inset -8px -8px 8px #fff;
+  padding-left: 1.3rem;
 }
 
 .loginpage input::placeholder {

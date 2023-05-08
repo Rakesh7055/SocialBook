@@ -7,17 +7,18 @@ import "./component/translation/Translatelan";
 import Notification from "./component/Notification/Index";
 import Explore from "./component/Export/Index";
 import Right from "./component/main_right/Right";
-import Middle from "./component/main_middle/Middle";
 import Theme from "./component/Theme/Index";
 import Setting from "./component/Setting/Index";
 import Analytics from "./component/Analytics/Index";
 import Messages from "./component/Messages/Index";
-import User from "./component/User/Index";
+import User from "./component/Inbox/Index";
 import UserProfile from "./component/UserProfile/Index";
 import Api from "./pages/RestApi/Api";
 import SignUp from "./pages/SignUp";
 import Auth from "./component/Auth";
 import { UserContextProvider } from "./context/userContext";
+import RequireNoAuth from "./component/RequireNoAuth";
+import RequireAuth from "./component/RequireAuth";
 
 const App = () => {
   return (
@@ -25,12 +26,33 @@ const App = () => {
       <BrowserRouter>
         <Routes>
           {/* <Route path="/" element={<Language />} /> */}
-          <Route path="loginpage" element={<Loginpage />} />
-          <Route path="signUp" element={<SignUp />} />
+          <Route
+            path="loginpage"
+            element={
+              <RequireNoAuth>
+                <Loginpage />
+              </RequireNoAuth>
+            }
+          />
+          <Route
+            path="signUp"
+            element={
+              <RequireNoAuth>
+                <SignUp />
+              </RequireNoAuth>
+            }
+          />
           <Route path="dashboard" element={<Dashboard />} />
         </Routes>
         <Routes>
-          <Route path="/" element={<Dashboard />}>
+          <Route
+            path="/"
+            element={
+              <RequireAuth>
+                <Dashboard />
+              </RequireAuth>
+            }
+          >
             <Route index element={<Right />} />
             <Route path="/Explore" element={<Explore />} />
             <Route path="/Notification" element={<Notification />} />

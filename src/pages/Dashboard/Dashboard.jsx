@@ -10,7 +10,7 @@ import Nav from "../../component/nav/Nav";
 import UserProfile from "../../component/UserProfile/Index";
 import Left_menu from "../../component/Left_menu/Index";
 import Messages from "../../component/Messages/Index";
-import Middle from "../../component/main_middle/Middle";
+import Middle from "../../component/ feedPost/Middle";
 
 const Dashboard = () => {
   const requestPermission = async () => {
