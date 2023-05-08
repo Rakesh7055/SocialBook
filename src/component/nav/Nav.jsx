@@ -11,6 +11,8 @@ const Nav = () => {
 
   const logOut = (e) => {
     e.preventDefault();
+    localStorage.removeItem("user");
+    localStorage.removeItem("email");
     navigaton("/loginpage");
   };
 

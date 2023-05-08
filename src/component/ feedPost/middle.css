@@ -169,6 +169,8 @@
   .middle {
     margin-top: 0rem;
     height: 6rem;
+    width: 99%;
+    margin: auto;
   }
 
   .middle .stories {

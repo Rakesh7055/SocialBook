@@ -12,6 +12,7 @@ const Index = () => {
   const { profile_img, user } = useParams();
   console.log(user);
   const [msg, setMsg] = useState();
+  console.log(msg);
   const ref = useRef(null);
 
   let inboxMessage = "";

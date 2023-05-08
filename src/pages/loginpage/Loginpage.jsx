@@ -4,7 +4,7 @@ import frontimg from "../../assets/frontpage.png";
 import { HiOutlineUserCircle } from "react-icons/hi";
 import { FaCheckCircle } from "react-icons/fa";
 import { CiLock } from "react-icons/ci";
-import { NavLink, useNavigate, useNavigation } from "react-router-dom";
+import { NavLink, useNavigate, useLocation } from "react-router-dom";
 import i18next from "i18next";
 import { useTranslation } from "react-i18next";
 import { auth } from "../../firebase";
@@ -12,6 +12,8 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 
 const Loginpage = () => {
   const { t } = useTranslation();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
 
   const [state, setState] = useState({
     user: "",
@@ -70,7 +72,8 @@ const Loginpage = () => {
   }
   async function handleSubmission(e) {
     e.preventDefault();
-    navigate("/");
+    navigate(from, { replace: true });
+
     setSubmitButtonDisabled(true);
     signInWithEmailAndPassword(auth, state.email, state.password)
       .then((res) => {
@@ -95,9 +98,9 @@ const Loginpage = () => {
           <img className="img1" src={frontimg} alt="" />
           <h3>{i18next.t("login")}</h3>
           <form action="#">
-            <label>
+            {/* <label>
               <HiOutlineUserCircle />
-            </label>
+            </label> */}
             <input
               name="email"
               type="text"
@@ -111,9 +114,9 @@ const Loginpage = () => {
               </span>
             )}
 
-            <label>
+            {/* <label>
               <CiLock />
-            </label>
+            </label> */}
             <input
               name="password"
               type="password"

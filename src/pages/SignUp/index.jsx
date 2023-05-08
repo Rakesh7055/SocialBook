@@ -1,13 +1,15 @@
 import React, { useState } from "react";
 import "./style.css";
 import frontimg from "../../assets/frontpage.png";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink, useNavigate, useLocation } from "react-router-dom";
 import { auth } from "../../firebase";
 import { useUserContext } from "../../context/userContext";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 
 const SignUp = () => {
   const { logIn } = useUserContext();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
 
   const [userData, setUserData] = useState({
     email: "",
@@ -29,6 +31,8 @@ const SignUp = () => {
     e.preventDefault();
     logIn(userData.user);
     setSubmitButtonDisabled(true);
+    localStorage.setItem("user", userData.user);
+    localStorage.setItem("email", userData.email);
 
     createUserWithEmailAndPassword(auth, userData.email, userData.password)
       .then(async (res) => {
@@ -38,7 +42,7 @@ const SignUp = () => {
         await updateProfile(user, {
           displayName: userData.user,
         });
-        navigaton("/");
+        navigaton(from, { replace: true });
       })
       .catch((error) => {
         setSubmitButtonDisabled(false);
@@ -77,7 +81,7 @@ const SignUp = () => {
               name="user"
               type="text"
               value={userData.user}
-              placeholder="user"
+              placeholder="name"
               onChange={poetUserData}
               required
             />
